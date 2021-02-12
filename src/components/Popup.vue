@@ -1,7 +1,7 @@
 <template>
     <div>
       <p>{{def.fields.jours_ouverture}}</p>
-      <button @click="showDef(undefined)">Close</button>
+      <button @click="$emit('close')">Close</button>
     </div>
 </template>
 
@@ -16,9 +16,6 @@ export default {
     showDef(def){
       this.selectedDef = def;
     }
-  },
-  mounted(){
-    this.$root.$on('needDef', console.log("ok"));  
   }
 };
 </script>

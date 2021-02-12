@@ -13,7 +13,7 @@
       :key="index"
       :position="{lat:parseFloat(def.fields.location[0]), lng:parseFloat(def.fields.location[1])}"
       :clickable="true"
-      @click="emit(def)"
+      @click="selectDef(def)"
     />
     <MarkerComponent
       v-if="position"
@@ -23,9 +23,8 @@
     <Popup
       :selectedDef = "selectedDef"
       v-if="selectedDef"
-      v-on:needDef="showDef(def)"
-      >
-    </Popup>
+      @close="selectedDef = undefined"
+      />
   </div>
 </template>
 
@@ -36,7 +35,7 @@ import Popup from "@/components/Popup";
 
 export default {
   name: 'Home',
-  components: { Map, MarkerComponent },
+  components: { Map, MarkerComponent, Popup },
   data(){
     return {
       selectedDef: undefined,
@@ -45,8 +44,8 @@ export default {
     };
   },
   methods:{
-    emit(def){
-      this.$root.$emit('needDef', def);
+    selectDef(def){
+      this.selectedDef = def
     }
   },
   
