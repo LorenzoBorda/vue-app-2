@@ -1,6 +1,10 @@
 <template>
-    <div>
-      <p>{{def.fields.jours_ouverture}}</p>
+    <div style="border: 1px solid black; width: 50%; margin-top: 20px;">
+      <p> Lieu : {{selectedDef.fields.designation}} </p>
+      <p> Précisions : {{selectedDef.fields.position_precise}} </p>
+      <p> Jours d'ouverture : {{selectedDef.fields.jours_ouverture}} </p>
+      <p> Heure d'ouverture : {{selectedDef.fields.heure_ouverture}} </p>
+      <p> Heure fermeture : {{selectedDef.fields.heure_fermeture}} </p>
       <button @click="$emit('close')">Close</button>
     </div>
 </template>

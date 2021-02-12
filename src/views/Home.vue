@@ -18,6 +18,7 @@
     <MarkerComponent
       v-if="position"
       :position="{lat:parseFloat(position[0]), lng:parseFloat(position[1])}"
+      @click="viewSelf()"
     />
     </Map>
     <Popup
@@ -46,6 +47,9 @@ export default {
   methods:{
     selectDef(def){
       this.selectedDef = def
+    },
+    viewSelf(){
+      this.selectedDef = {fields:{designation:"c'est vous", jours_ouverture:"", heure_ouverture:"", heure_fermeture:"", position_precise:""}}
     }
   },
   
